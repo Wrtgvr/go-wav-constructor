@@ -10,7 +10,6 @@ import (
 
 const (
 	SampleRate = 44100 // Hz
-	Volume     = 0.8   // 0.0 - 1.0
 )
 
 func main() {
@@ -36,12 +35,12 @@ func getNoteFreq(note Note) float64 {
 	return math.Pow(2, float64(note)/12) * 440
 }
 
-func generateTone(f *os.File, frequency float64, duration float64) {
+func generateTone(f *os.File, frequency float64, duration, volume float64) {
 	numSamples := int(SampleRate * duration)
 	for i := 0; i < numSamples; i++ {
 		t := float64(i) / SampleRate
 		v := math.Sin(2 * math.Pi * frequency * t)
-		sample := int16(v * Volume * 32767)
+		sample := int16(v * volume * 32767)
 		binary.Write(f, binary.LittleEndian, sample)
 	}
 }
