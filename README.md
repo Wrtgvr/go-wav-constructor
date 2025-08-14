@@ -1,4 +1,6 @@
 # WAV file constructor! Make a simple melody with nothing but a code!
+## Requirements:
+- Golang 1.24.0+
 ## Installing
 ```bash
 git clone https://github.com/Wrtgvr/go-wav-constructor
