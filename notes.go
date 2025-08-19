@@ -11,7 +11,7 @@ const (
 	NoteF
 	NoteFSh
 	NoteG
-	NoteGsh
+	NoteGSh
 	NoteA
 	NoteASh
 	NoteB

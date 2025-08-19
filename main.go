@@ -22,7 +22,7 @@ func main() {
 
 	dataStartPos, _ := newWav.Seek(0, io.SeekCurrent)
 
-	melodyTwo(newWav)
+	freedomMotif(newWav)
 
 	// write header after data
 	dataEndPos, _ := newWav.Seek(0, io.SeekCurrent)
@@ -31,11 +31,17 @@ func main() {
 	writeWAVHeader(newWav, 1, 16, int(dataSize))
 }
 
-func getNoteFreq(note Note) float64 {
-	return math.Pow(2, float64(note)/12) * 440
+func getNoteFreq(note Note, octave int8) float64 {
+
+	baseFreq := 440.0 * math.Pow(2, float64(note)/12)
+
+	octaveShift := octave - 4
+	return baseFreq * math.Pow(2, float64(octaveShift))
 }
 
-func generateTone(f *os.File, frequency float64, duration, volume float64) {
+func generateTone(f *os.File, note Note, octave int8, duration, volume float64) {
+	frequency := getNoteFreq(note, octave)
+
 	numSamples := int(SampleRate * duration)
 	for i := 0; i < numSamples; i++ {
 		t := float64(i) / SampleRate
