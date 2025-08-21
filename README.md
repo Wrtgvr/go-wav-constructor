@@ -10,7 +10,7 @@ cd go-wav-constructor
 Example:
 ```go
 func melodyOne(f *os.File) {
-	// f - .wav file, NoteC - musicnote, 4 - octave, .5 - note duration in seconds, 4 - volume
+	// f - .wav file, NoteC - music note, 4 - octave, .5 - note duration in seconds, 4 - volume
 	generateTone(f, NoteC, 4, .5, 4) // you CAN set volume to 1+
 	generateTone(f, NoteC, 4, .3, 10)
 	generateTone(f, NoteD, 4, .2, 100)
