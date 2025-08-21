@@ -10,13 +10,12 @@ cd go-wav-constructor
 Example:
 ```go
 func melodyOne(f *os.File) {
-	// f - .wav file, getNoteFreq - frequency of given note, .5 - note duration in seconds, 4 - volume
-	generateTone(f, getNoteFreq(NoteC), .5, 4) // you CAN set volume to 1+
-	generateTone(f, getNoteFreq(NoteC), .3, 10)
-	generateTone(f, getNoteFreq(NoteD), .2, 100)
-	generateTone(f, getNoteFreq(NoteE), .2, 10)
-	generateTone(f, getNoteFreq(NoteF), .3, 2)
-	generateTone(f, getNoteFreq(NoteG), .1, 1)
+	// f - .wav file, NoteC - musicnote, 4 - octave, .5 - note duration in seconds, 4 - volume
+	generateTone(f, NoteC, 4, .5, 4) // you CAN set volume to 1+
+	generateTone(f, NoteC, 4, .3, 10)
+	generateTone(f, NoteD, 4, .2, 100)
+	generateTone(f, NoteF, 4, .3, .5)
+	generateTone(f, NoteG, 4, .1, 1)
 }
 ```
 ## "Why do I need it?"
